@@ -1,0 +1,18 @@
+
+class Solution {
+    public int FindGreatestSumOfSubArray(int[] array) {
+        int max = array[0];  //记录所有子数组序列中的最大值
+        int res = array[0]; //  记录当前加入array[i]之后  连续数组的最大值。 （就是决定还要前面的序列，还是从i下标开始重新作为一个序列
+        for(int i=1; i<array.length; i++){
+            res = Math.max(res+array[i],array[i]);
+            max = Math.max(res,max);
+        }
+        return max;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new Solution().FindGreatestSumOfSubArray(new int[]{1,-2,3,10,-4,7,2,-5});
+    }
+}
